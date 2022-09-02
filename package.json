@@ -1,6 +1,6 @@
 {
   "name": "envaid",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A better way to access your environment variables",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -47,5 +47,13 @@
   },
   "files": [
     "dist"
+  ],
+  "keywords": [
+    "env",
+    "environment",
+    "variables",
+    "parser",
+    "default",
+    "fallback"
   ]
 }
