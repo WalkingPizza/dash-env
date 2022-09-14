@@ -88,7 +88,7 @@ function array<T>(key: string, defaultValue?: T[], trim = true) {
   return array;
 }
 
-type DashEnv = typeof env & {
+type Envaid = typeof env & {
   int: typeof int;
   float: typeof float;
   bool: typeof bool;
@@ -98,4 +98,4 @@ type DashEnv = typeof env & {
 
 Object.assign(env, { int, float, bool, json, array });
 
-export default env as DashEnv;
+export default env as Envaid;
