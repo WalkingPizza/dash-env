@@ -1,6 +1,6 @@
 {
   "name": "envaid",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A better way to access your environment variables",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
