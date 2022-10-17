@@ -65,7 +65,11 @@ function json(key: string, defaultValue?: any) {
   return JSON.parse(process.env[key] as string);
 }
 
-function array(key: string, defaultValue?: never, trim?: boolean): string[];
+function array(
+  key: string,
+  defaultValue?: never,
+  trim?: boolean
+): string[] | undefined;
 function array<T>(
   key: string,
   defaultValue?: T[],
@@ -88,12 +92,32 @@ function array<T>(key: string, defaultValue?: T[], trim = true) {
   return array;
 }
 
+function buffer(
+  key: string,
+  defaultValue?: never,
+  encoding?: BufferEncoding
+): Buffer | undefined;
+function buffer<T extends Buffer | undefined = undefined>(
+  key: string,
+  defaultValue?: T,
+  encoding?: BufferEncoding
+): T extends undefined ? Buffer | undefined : Buffer;
+function buffer(
+  key: string,
+  defaultValue?: Buffer,
+  encoding: BufferEncoding = "utf-8"
+) {
+  if (!(key in process.env)) return defaultValue;
+  return Buffer.from(process.env[key] as string, encoding);
+}
+
 type Envaid = typeof env & {
   int: typeof int;
   float: typeof float;
   bool: typeof bool;
   json: typeof json;
   array: typeof array;
+  buffer: typeof buffer;
 };
 
 Object.assign(env, { int, float, bool, json, array });
