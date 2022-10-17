@@ -120,6 +120,6 @@ type Envaid = typeof env & {
   buffer: typeof buffer;
 };
 
-Object.assign(env, { int, float, bool, json, array });
+Object.assign(env, { int, float, bool, json, array, buffer });
 
 export default env as Envaid;
